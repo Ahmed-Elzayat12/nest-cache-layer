@@ -29,6 +29,29 @@ import { AppCacheModule } from "nest-cache-layer";
 export class AppModule {}
 ```
 
+## Example module + controller
+
+```ts
+import { Module } from "@nestjs/common";
+import { AppCacheModule, ExampleModule } from "nest-cache-layer";
+
+@Module({
+  imports: [
+    AppCacheModule.forRoot({
+      redisUrl: process.env.REDIS_URL,
+      defaultTtlSeconds: 60,
+      keyPrefix: "example",
+    }),
+    ExampleModule,
+  ],
+})
+export class AppModule {}
+```
+
+Example endpoints:
+- `GET /example/greeting?name=you`
+- `POST /example/greeting/bump`
+
 ## Example buckets/TTLs
 
 ```ts
