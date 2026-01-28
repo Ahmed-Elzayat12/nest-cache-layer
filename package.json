@@ -1,6 +1,6 @@
 {
   "name": "nest-cache-layer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Redis-backed cache module for NestJS with versioned keys and optional metrics",
   "license": "MIT",
   "main": "dist/index.cjs",
