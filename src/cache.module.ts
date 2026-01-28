@@ -1,6 +1,7 @@
 import { CacheModule } from '@nestjs/cache-manager';
 import { Global, Module } from '@nestjs/common';
-import { redisStore } from 'cache-manager-redis-yet';
+import Keyv from 'keyv';
+import KeyvRedis from '@keyv/redis';
 import {
   CACHE_MODULE_OPTIONS,
   CacheModuleOptions,
@@ -27,10 +28,12 @@ export class AppCacheModule {
 
             return {
               ttl,
-              store: await redisStore({
-                url: options.redisUrl,
-                keyPrefix: options.keyPrefix,
-              }),
+              stores: [
+                new Keyv({
+                  store: new KeyvRedis(options.redisUrl),
+                  namespace: options.keyPrefix,
+                }),
+              ],
             };
           },
         }),
