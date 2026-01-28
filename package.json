@@ -1,34 +1,35 @@
 {
-  "name": "nest-cache-layer",
-  "version": "0.1.1",
-  "description": "Redis-backed cache module for NestJS with versioned keys and optional metrics",
-  "license": "MIT",
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    }
-  },
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "build": "tsup src/index.ts --dts --format cjs,esm",
-    "prepublishOnly": "npm run build"
-  },
-  "dependencies": {
-    "@keyv/redis": "^4.6.0",
-    "@nestjs/cache-manager": "^3.1.0",
-    "@nestjs/common": "^11.1.12",
-    "cache-manager": "^6.1.3",
-    "keyv": "^5.3.4"
-  },
-  "devDependencies": {
-    "tsup": "^8.0.2",
-    "typescript": "^5.9.3"
-  }
+	"name": "nest-cache-layer",
+	"version": "0.1.2",
+	"description": "Redis-backed cache module for NestJS with versioned keys and optional metrics",
+	"license": "MIT",
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs"
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "tsup src/index.ts --dts --format cjs,esm",
+		"prepack": "npm run build",
+		"prepublishOnly": "npm run build"
+	},
+	"dependencies": {
+		"@keyv/redis": "^4.6.0",
+		"@nestjs/cache-manager": "^3.1.0",
+		"@nestjs/common": "^11.1.12",
+		"cache-manager": "^6.1.3",
+		"keyv": "^5.3.4"
+	},
+	"devDependencies": {
+		"tsup": "^8.0.2",
+		"typescript": "^5.9.3"
+	}
 }
